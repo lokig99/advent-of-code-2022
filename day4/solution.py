@@ -9,9 +9,10 @@ class SectionRange:
     def __repr__(self):
         return f"SectionRange({self.start}, {self.end})"
     
-    def fully_contains(self, other: 'SectionRange'):
+    def fully_contains(self, other: 'SectionRange') -> bool:
         if len(self) >= len(other):
             return self.start <= other.start and self.end >= other.end
+        return False
         
     def overlaps(self, other: 'SectionRange'):
         return self.start <= other.end and self.end >= other.start
